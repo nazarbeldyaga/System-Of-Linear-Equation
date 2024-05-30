@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System_Of_Linear_Equation._2x2">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Members>
+      <Method Name="SolveLinearEquations" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>2x2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.ArrayToMatrix">
+    <Position X="3.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ArrayToMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Form1">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <Members>
+      <Field Name="button1" Hidden="true" />
+      <Field Name="button2" Hidden="true" />
+      <Field Name="button3" Hidden="true" />
+      <Field Name="button4" Hidden="true" />
+      <Field Name="button5" Hidden="true" />
+      <Field Name="button6" Hidden="true" />
+      <Field Name="button7" Hidden="true" />
+      <Field Name="button8" Hidden="true" />
+      <Field Name="comboBox1" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="Form1_Load" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Method Name="label1_Click" Hidden="true" />
+      <Field Name="label11" Hidden="true" />
+      <Field Name="label12" Hidden="true" />
+      <Field Name="label13" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Field Name="label15" Hidden="true" />
+      <Field Name="label16" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label21" Hidden="true" />
+      <Field Name="label22" Hidden="true" />
+      <Field Name="label23" Hidden="true" />
+      <Field Name="label24" Hidden="true" />
+      <Field Name="label25" Hidden="true" />
+      <Field Name="label26" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Method Name="label3_Click" Hidden="true" />
+      <Field Name="label31" Hidden="true" />
+      <Field Name="label32" Hidden="true" />
+      <Field Name="label33" Hidden="true" />
+      <Field Name="label34" Hidden="true" />
+      <Field Name="label35" Hidden="true" />
+      <Field Name="label36" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label41" Hidden="true" />
+      <Field Name="label42" Hidden="true" />
+      <Field Name="label43" Hidden="true" />
+      <Field Name="label44" Hidden="true" />
+      <Field Name="label45" Hidden="true" />
+      <Field Name="label46" Hidden="true" />
+      <Field Name="label51" Hidden="true" />
+      <Field Name="label52" Hidden="true" />
+      <Field Name="label53" Hidden="true" />
+      <Field Name="label54" Hidden="true" />
+      <Field Name="label55" Hidden="true" />
+      <Field Name="label56" Hidden="true" />
+      <Field Name="label61" Hidden="true" />
+      <Field Name="label62" Hidden="true" />
+      <Field Name="label63" Hidden="true" />
+      <Field Name="label64" Hidden="true" />
+      <Field Name="label65" Hidden="true" />
+      <Field Name="label66" Hidden="true" />
+      <Field Name="menuStrip1" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel11" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel8" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+      <Field Name="textBox1" Hidden="true" />
+      <Field Name="textBox11" Hidden="true" />
+      <Field Name="textBox12" Hidden="true" />
+      <Method Name="textBox12_TextChanged" Hidden="true" />
+      <Field Name="textBox13" Hidden="true" />
+      <Method Name="textBox13_TextChanged" Hidden="true" />
+      <Field Name="textBox14" Hidden="true" />
+      <Method Name="textBox14_TextChanged" Hidden="true" />
+      <Field Name="textBox15" Hidden="true" />
+      <Method Name="textBox15_TextChanged" Hidden="true" />
+      <Field Name="textBox16" Hidden="true" />
+      <Method Name="textBox16_TextChanged" Hidden="true" />
+      <Field Name="textBox17" Hidden="true" />
+      <Method Name="textBox17_TextChanged" Hidden="true" />
+      <Field Name="textBox21" Hidden="true" />
+      <Method Name="textBox21_TextChanged" Hidden="true" />
+      <Field Name="textBox22" Hidden="true" />
+      <Method Name="textBox22_TextChanged" Hidden="true" />
+      <Field Name="textBox23" Hidden="true" />
+      <Method Name="textBox23_TextChanged" Hidden="true" />
+      <Field Name="textBox24" Hidden="true" />
+      <Method Name="textBox24_TextChanged" Hidden="true" />
+      <Field Name="textBox25" Hidden="true" />
+      <Method Name="textBox25_TextChanged" Hidden="true" />
+      <Field Name="textBox26" Hidden="true" />
+      <Method Name="textBox26_TextChanged" Hidden="true" />
+      <Field Name="textBox27" Hidden="true" />
+      <Method Name="textBox27_TextChanged" Hidden="true" />
+      <Field Name="textBox31" Hidden="true" />
+      <Method Name="textBox31_TextChanged" Hidden="true" />
+      <Field Name="textBox32" Hidden="true" />
+      <Method Name="textBox32_TextChanged" Hidden="true" />
+      <Field Name="textBox33" Hidden="true" />
+      <Method Name="textBox33_TextChanged" Hidden="true" />
+      <Field Name="textBox34" Hidden="true" />
+      <Method Name="textBox34_TextChanged" Hidden="true" />
+      <Field Name="textBox35" Hidden="true" />
+      <Method Name="textBox35_TextChanged" Hidden="true" />
+      <Field Name="textBox36" Hidden="true" />
+      <Method Name="textBox36_TextChanged" Hidden="true" />
+      <Field Name="textBox37" Hidden="true" />
+      <Method Name="textBox37_TextChanged" Hidden="true" />
+      <Field Name="textBox41" Hidden="true" />
+      <Method Name="textBox41_TextChanged" Hidden="true" />
+      <Field Name="textBox42" Hidden="true" />
+      <Method Name="textBox42_TextChanged" Hidden="true" />
+      <Field Name="textBox43" Hidden="true" />
+      <Method Name="textBox43_TextChanged" Hidden="true" />
+      <Field Name="textBox44" Hidden="true" />
+      <Method Name="textBox44_TextChanged" Hidden="true" />
+      <Field Name="textBox45" Hidden="true" />
+      <Method Name="textBox45_TextChanged" Hidden="true" />
+      <Field Name="textBox46" Hidden="true" />
+      <Method Name="textBox46_TextChanged" Hidden="true" />
+      <Field Name="textBox47" Hidden="true" />
+      <Method Name="textBox47_TextChanged" Hidden="true" />
+      <Field Name="textBox51" Hidden="true" />
+      <Method Name="textBox51_TextChanged" Hidden="true" />
+      <Field Name="textBox52" Hidden="true" />
+      <Method Name="textBox52_TextChanged" Hidden="true" />
+      <Field Name="textBox53" Hidden="true" />
+      <Method Name="textBox53_TextChanged" Hidden="true" />
+      <Field Name="textBox54" Hidden="true" />
+      <Method Name="textBox54_TextChanged" Hidden="true" />
+      <Field Name="textBox55" Hidden="true" />
+      <Method Name="textBox55_TextChanged" Hidden="true" />
+      <Field Name="textBox56" Hidden="true" />
+      <Method Name="textBox56_TextChanged" Hidden="true" />
+      <Field Name="textBox57" Hidden="true" />
+      <Method Name="textBox57_TextChanged" Hidden="true" />
+      <Field Name="textBox61" Hidden="true" />
+      <Method Name="textBox61_TextChanged" Hidden="true" />
+      <Field Name="textBox62" Hidden="true" />
+      <Method Name="textBox62_TextChanged" Hidden="true" />
+      <Field Name="textBox63" Hidden="true" />
+      <Method Name="textBox63_TextChanged" Hidden="true" />
+      <Field Name="textBox64" Hidden="true" />
+      <Method Name="textBox64_TextChanged" Hidden="true" />
+      <Field Name="textBox65" Hidden="true" />
+      <Method Name="textBox65_TextChanged" Hidden="true" />
+      <Field Name="textBox66" Hidden="true" />
+      <Method Name="textBox66_TextChanged" Hidden="true" />
+      <Field Name="textBox67" Hidden="true" />
+      <Method Name="textBox67_TextChanged" Hidden="true" />
+      <Field Name="допомогаToolStripMenuItem" Hidden="true" />
+      <Field Name="інструкціяToolStripMenuItem" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>5yAAAgQAESEggFCQAACIACBC4MQ7AAgAkDQPAQRDAAQ=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Form2">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <Members>
+      <Field Name="button1" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="Form2_Load" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Method Name="label1_Click" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAIQAACAAABAAAACAAAACAAAIAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Form2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Form4">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <Members>
+      <Field Name="button1" Hidden="true" />
+      <Field Name="button2" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="Form4_Load" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Method Name="label1_Click" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Method Name="label3_Click" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+      <Method Name="pictureBox1_Click" Hidden="true" />
+      <Field Name="plotView1" Hidden="true" />
+      <Method Name="plotView1_Click" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAIAQgECAgABAAQACAAAACAAIYAAAAAGAAAABAAAA=</HashCode>
+      <FileName>Form4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Form4About">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <Members>
+      <Field Name="button1" Hidden="true" />
+      <Field Name="button2" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="Form4About_Load" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Method Name="label1_Click" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAABAAAACAAAACAAAYAAAABGAAAABAAAA=</HashCode>
+      <FileName>Form4About.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Form5">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <Members>
+      <Field Name="button1" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAIAEAAAEAAAAAAAAA=</HashCode>
+      <FileName>Form5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Method3">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Method3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_Of_Linear_Equation.Program">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Method1">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAIBAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>Method1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Method2">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAUAAAAAAAAAAAAABAAAAAAAIAAIAAAAAAQAAAAAA=</HashCode>
+      <FileName>Method2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="10.75" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
