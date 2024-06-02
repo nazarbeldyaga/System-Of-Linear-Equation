@@ -18,34 +18,34 @@ public static class Method2
                 x[i - k] = R[i, k];
             }
             operations += 2;
-            double alpha = -Math.Sign(x[0]) * Math.Sqrt(DotProduct(x, x, ref operations));
+            double alpha = -Math.Sign(x[0]) * Math.Sqrt(DotProduct(x, x, ref operations));//мінус знак першого елемента x помножений на корінь квадратний від суми квадратів елементів x.
             double[] u = new double[n - k];
             operations++;
             u[0] = x[0] - alpha;
             for (int i = 1; i < n - k; i++)
             {
-                u[i] = x[i];
+                u[i] = x[i];//копіюються
             }
 
             double normU = Math.Sqrt(DotProduct(u, u, ref operations));
             for (int i = 0; i < n - k; i++)
             {
                 operations++;
-                u[i] /= normU;
+                u[i] /= normU;//нормалізація вектора шляхом ділення на його норму
             }
 
-            H = IdentityMatrix(n);
-            for (int i = k; i < n; i++)
+            H = IdentityMatrix(n);// створює одиничну матрицю
+            for (int i = k; i < n; i++)//створення матриці H
             {
                 for (int j = k; j < n; j++)
                 {
                     operations += 3;
-                    H[i, j] -= 2 * u[i - k] * u[j - k];
+                    H[i, j] -= 2 * u[i - k] * u[j - k];//зміна на основі вектора u
                 }
             }
 
-            R = MatrixMultiply(H, R, ref operations);
-            Q = k == 0 ? H : MatrixMultiply(Q, H, ref operations);
+            R = MatrixMultiply(H, R, ref operations);//шляхом множення на матрицю H, R перетворюється на верхню трикутнку
+            Q = k == 0 ? H : MatrixMultiply(Q, H, ref operations);//тернарний оператор, якщо k = 0 то Q = H, інакше метод
         }
 
         Q = MatrixTranspose(Q);

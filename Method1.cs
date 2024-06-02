@@ -16,7 +16,7 @@ public static class Method1
         int n = A.GetLength(0);
         double[,] L = new double[n, n];
         double[,] U = new double[n, n];
-        int[] P = new int[n]; // Permutation vector
+        int[] P = new int[n]; //Вектор перестановок
 
         for (int i = 0; i < n; i++)
         {
@@ -49,22 +49,23 @@ public static class Method1
                 }
             }
 
-            // Find the pivot row (maximum absolute value in the current column)
+            
+            //знайти рядок, який має максимальне абсолютне значення в поточному стовпчику, починаючи з рядка i.
             operations++;
-            double maxVal = Math.Abs(L[i, i]);
-            int pivotRow = i;
-            for (int k = i + 1; k < n; k++)
+            double maxVal = Math.Abs(L[i, i]); // Ініціалізуємо maxVal як абсолютне значення поточного діагонального елемента
+            int pivotRow = i; // Ініціалізуємо pivotRow як поточний рядок
+            for (int k = i + 1; k < n; k++) // Цикл для перегляду всіх рядків нижче поточного
             {
                 operations +=2;
-                double absVal = Math.Abs(L[k, i]);
-                if (absVal > maxVal)
+                double absVal = Math.Abs(L[k, i]); // Обчислюємо абсолютне значення елемента в стовпчику і рядку k
+                if (absVal > maxVal) // Якщо знайдене значення більше за поточне максимальне
                 {
-                    maxVal = absVal;
-                    pivotRow = k;
+                    maxVal = absVal; // Оновлюємо максимальне значення
+                    pivotRow = k; // Оновлюємо індекс pivotRow
                 }
             }
 
-            // Swap rows in L and update permutation vector
+            // Міняємо рядки у L та оновлюємо матрицю перестановок
             operations++;
             if (pivotRow != i)
             {
@@ -86,7 +87,7 @@ public static class Method1
             matrix[row2, j] = temp;
         }
     }
-
+    //міняємо відповідні елементи у матриці перестановок
     private static void Swap(ref int a, ref int b)
     {
         int temp = a;

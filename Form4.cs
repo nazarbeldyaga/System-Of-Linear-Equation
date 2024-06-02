@@ -88,7 +88,7 @@ namespace System_Of_Linear_Equation
             var line1 = new LineSeries
             {
                 Title = "Перша пряма",
-                StrokeThickness = 2,
+                StrokeThickness = 2,//ширина прямої
                 Color = OxyColors.Blue
             };
             var line2 = new LineSeries

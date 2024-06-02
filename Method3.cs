@@ -13,14 +13,14 @@ namespace System_Of_Linear_Equation
         public static (double[,], double[,], double[,], double[,], double[,], double[,], int) Cholesky(double[,] A, double[,] B)
         {
             int operations = 0;
-            (double[,] L, double[,] D) = LDLDecomposition(A, ref operations);
-            double[,] LUp = SimpleUpperTriangularMatrix(L);
+            (double[,] L, double[,] D) = LDDecomposition(A, ref operations);
+            double[,] LUp = SimpleUpperTriangularMatrix(L);//Транспонування нижньої матриці
             double[,] Y = SimpleSolveForY(L, B, ref operations);
             double[,] Z = SimpleSolveForX(D, Y, ref operations);
             double[,] X = SimpleSolveForX(LUp, Z, ref operations);
             return (X, L, D, LUp, Y, Z, operations);
         }
-        public static (double[,], double[,]) LDLDecomposition(double[,] A, ref int operations)
+        public static (double[,], double[,]) LDDecomposition(double[,] A, ref int operations)
         {
             int n = A.GetLength(0);
             double[,] L = new double[n, n];
@@ -40,7 +40,7 @@ namespace System_Of_Linear_Equation
                             sum += L[j, k] * L[j, k] * D[k, k];
                         }
                         operations++;
-                        D[j, j] = A[j, j] - sum;
+                        D[j, j] = A[j, j] - sum; //при від'ємних значеннях, елементи діагональної матриці можуть бути від'ємними або нульовими 
                         L[j, j] = 1;
                     }
                     else
@@ -51,7 +51,7 @@ namespace System_Of_Linear_Equation
                             sum += (L[i, k] * D[k, k] * L[j, k]);
                         }
                         operations += 2;
-                        L[i, j] = (A[i, j] - sum) / D[j, j];
+                        L[i, j] = (A[i, j] - sum) / D[j, j];//через можливе ділення на нуль або від'ємне число, нижня трикутна мтариця може бути неправильною
                     }
                 }
             }
@@ -60,8 +60,8 @@ namespace System_Of_Linear_Equation
         }
         public static double[,] SimpleUpperTriangularMatrix(double[,] L)
         {
-            int n = L.GetLength(0); // Розмірність матриці A
-            double[,] LUp = new double[n, n]; // Нижня трикутна матриця L
+            int n = L.GetLength(0);
+            double[,] LUp = new double[n, n]; // Верхня трикутна матриця L
             double temp;
             for (int i = 0; i < n; i++)
             {
