@@ -10,16 +10,17 @@ namespace System_Of_Linear_Equation
 {
     public static class Method3
     {
-        public static (double[,], double[,], double[,], double[,], double[,], double[,]) Cholesky(double[,] A, double[,] B)
+        public static (double[,], double[,], double[,], double[,], double[,], double[,], int) Cholesky(double[,] A, double[,] B)
         {
-            (double[,] L, double[,] D) = LDLDecomposition(A);
+            int operations = 0;
+            (double[,] L, double[,] D) = LDLDecomposition(A, ref operations);
             double[,] LUp = SimpleUpperTriangularMatrix(L);
-            double[,] Y = SimpleSolveForY(L, B);
-            double[,] Z = SimpleSolveForX(D, Y);
-            double[,] X = SimpleSolveForX(LUp, Z);
-            return (X, L, D, LUp, Y, Z);
+            double[,] Y = SimpleSolveForY(L, B, ref operations);
+            double[,] Z = SimpleSolveForX(D, Y, ref operations);
+            double[,] X = SimpleSolveForX(LUp, Z, ref operations);
+            return (X, L, D, LUp, Y, Z, operations);
         }
-        public static (double[,], double[,]) LDLDecomposition(double[,] A)
+        public static (double[,], double[,]) LDLDecomposition(double[,] A, ref int operations)
         {
             int n = A.GetLength(0);
             double[,] L = new double[n, n];
@@ -30,20 +31,26 @@ namespace System_Of_Linear_Equation
                 for (int j = 0; j <= i; j++)
                 {
                     double sum = 0;
-
+                    operations++;
                     if (j == i)
                     {
                         for (int k = 0; k < j; k++)
+                        {
+                            operations += 3;
                             sum += L[j, k] * L[j, k] * D[k, k];
-
+                        }
+                        operations++;
                         D[j, j] = A[j, j] - sum;
                         L[j, j] = 1;
                     }
                     else
                     {
                         for (int k = 0; k < j; k++)
+                        {
+                            operations += 3;
                             sum += (L[i, k] * D[k, k] * L[j, k]);
-
+                        }
+                        operations += 2;
                         L[i, j] = (A[i, j] - sum) / D[j, j];
                     }
                 }
@@ -78,7 +85,7 @@ namespace System_Of_Linear_Equation
             }
             return LUp;
         }
-        public static double[,] SimpleSolveForY(double[,] L, double[,] B)
+        public static double[,] SimpleSolveForY(double[,] L, double[,] B, ref int operations)
         {
             int n = L.GetLength(0); // Розмірність матриці L
             double[,] Y = new double[n, 1]; // Матриця Y
@@ -88,13 +95,15 @@ namespace System_Of_Linear_Equation
                 double sum = 0;
                 for (int k = 0; k < i; k++)
                 {
+                    operations += 2;
                     sum += L[i, k] * Y[k, 0];
                 }
+                operations += 2;
                 Y[i, 0] = (B[0, i] - sum) / L[i, i];
             }
             return Y;
         }
-        public static double[,] SimpleSolveForX(double[,] LUp, double[,] Y)
+        public static double[,] SimpleSolveForX(double[,] LUp, double[,] Y, ref int operations)
         {
             int n = LUp.GetLength(0); // Розмірність матриці LUp
             double[,] X = new double[n, 1]; // Матриця X
@@ -104,8 +113,10 @@ namespace System_Of_Linear_Equation
                 double sum = 0;
                 for (int k = i + 1; k < n; k++)
                 {
+                    operations += 2;
                     sum += LUp[i, k] * X[k, 0];
                 }
+                operations += 2;
                 X[i, 0] = (Y[i, 0] - sum) / LUp[i, i];
             }
 

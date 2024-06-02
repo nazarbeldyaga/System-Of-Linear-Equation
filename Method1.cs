@@ -2,15 +2,16 @@
 
 public static class Method1
 {
-    public static (double[,], double[,], double[,], int[], double[,]) LUP(double[,] A, double[,] B)
+    public static (double[,], double[,], double[,], int[], double[,], int) LUP(double[,] A, double[,] B)
     {
-        (double[,] L, double[,] U, int[] P) = LUPDecomposition(A);
-        double[,] Y = SolveForY(L, B, P);
-        double[,] X = SolveForX(U, Y);
-        return (X, L, U, P, Y);
+        int operations = 0;
+        (double[,] L, double[,] U, int[] P) = LUPDecomposition(A, ref operations);
+        double[,] Y = SolveForY(L, B, P, ref operations);
+        double[,] X = SolveForX(U, Y, ref operations);        
+        return (X, L, U, P, Y, operations);
     }
 
-    public static (double[,], double[,], int[]) LUPDecomposition(double[,] A)
+    public static (double[,], double[,], int[]) LUPDecomposition(double[,] A, ref int operations)
     {
         int n = A.GetLength(0);
         double[,] L = new double[n, n];
@@ -26,27 +27,35 @@ public static class Method1
                 double sum = 0;
 
                 for (int k = 0; k < j; k++)
+                {
+                    operations += 2;
                     sum += L[i, k] * U[k, j];
-
+                }
+                operations += 2;
                 L[i, j] = A[P[i], j] - sum;
-
+                operations++;
                 if (i == j)
                     U[i, j] = 1;
                 else
                 {
                     sum = 0;
                     for (int k = 0; k < i; k++)
+                    {
+                        operations += 2;
                         sum += L[j, k] * U[k, i];
-
+                    }
+                    operations += 3;
                     U[j, i] = (A[P[j], i] - sum) / L[j, j];
                 }
             }
 
             // Find the pivot row (maximum absolute value in the current column)
+            operations++;
             double maxVal = Math.Abs(L[i, i]);
             int pivotRow = i;
             for (int k = i + 1; k < n; k++)
             {
+                operations +=2;
                 double absVal = Math.Abs(L[k, i]);
                 if (absVal > maxVal)
                 {
@@ -56,6 +65,7 @@ public static class Method1
             }
 
             // Swap rows in L and update permutation vector
+            operations++;
             if (pivotRow != i)
             {
                 SwapRows(ref L, i, pivotRow);
@@ -84,7 +94,7 @@ public static class Method1
         b = temp;
     }
 
-    public static double[,] SolveForY(double[,] L, double[,] B, int[] P)
+    public static double[,] SolveForY(double[,] L, double[,] B, int[] P, ref int operations)
     {
         int n = L.GetLength(0);
         double[,] Y = new double[n, 1];
@@ -93,15 +103,18 @@ public static class Method1
         {
             double sum = 0;
             for (int k = 0; k < i; k++)
+            {
+                operations += 2;
                 sum += L[i, k] * Y[k, 0];
-
+            }
+            operations += 2;
             Y[i, 0] = (B[0, P[i]] - sum) / L[i, i];
         }
         return Y;
     }
 
 
-    public static double[,] SolveForX(double[,] U, double[,] Y)
+    public static double[,] SolveForX(double[,] U, double[,] Y, ref int operations)
     {
         int n = U.GetLength(0);
         double[,] X = new double[n, 1];
@@ -110,11 +123,13 @@ public static class Method1
         {
             double sum = 0;
             for (int k = i + 1; k < n; k++)
+            {
+                operations += 2;
                 sum += U[i, k] * X[k, 0];
-
+            }
+            operations++;
             X[i, 0] = Y[i, 0] - sum;
         }
-
         return X;
     }
 

@@ -589,7 +589,9 @@ namespace System_Of_Linear_Equation
         {
             double[,] Amatrix;
             double[,] Bmatrix;
+            double[,] X, Q, R, H, Y;
             bool success;
+            int operations = 0;
             switch (comboBox1.SelectedItem)
             {
                 case "2":
@@ -602,7 +604,7 @@ namespace System_Of_Linear_Equation
                         textBox31.Text, textBox32.Text, textBox33.Text, textBox34.Text);
                     if (success)
                     {
-                        double[,] X = Method2.QR(Amatrix, Bmatrix);
+                        (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -618,6 +620,8 @@ namespace System_Of_Linear_Equation
                             $"X2 = {Math.Round(X[1, 0], 3).ToString()}\r\n" +
                             $"X3 = {Math.Round(X[2, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                         }
                     }
@@ -635,7 +639,7 @@ namespace System_Of_Linear_Equation
                         textBox41.Text, textBox42.Text, textBox43.Text, textBox44.Text, textBox45.Text);
                     if (success)
                     {
-                        double[,] X = Method2.QR(Amatrix, Bmatrix);
+                        (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -652,6 +656,8 @@ namespace System_Of_Linear_Equation
                             $"X3 = {Math.Round(X[2, 0], 3).ToString()}\r\n" +
                             $"X4 = {Math.Round(X[3, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                         }
                     }
@@ -670,7 +676,7 @@ namespace System_Of_Linear_Equation
                         textBox51.Text, textBox52.Text, textBox53.Text, textBox54.Text, textBox55.Text, textBox56.Text);
                     if (success)
                     {
-                        double[,] X = Method2.QR(Amatrix, Bmatrix);
+                        (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -688,6 +694,8 @@ namespace System_Of_Linear_Equation
                             $"X4 = {Math.Round(X[3, 0], 3).ToString()}\r\n" +
                             $"X5 = {Math.Round(X[4, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                         }
                     }
@@ -707,7 +715,7 @@ namespace System_Of_Linear_Equation
                         textBox61.Text, textBox62.Text, textBox63.Text, textBox64.Text, textBox65.Text, textBox66.Text, textBox67.Text);
                     if (success)
                     {
-                        double[,] X = Method2.QR(Amatrix, Bmatrix);
+                        (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -726,6 +734,8 @@ namespace System_Of_Linear_Equation
                             $"X5 = {Math.Round(X[4, 0], 3).ToString()}\r\n" +
                             $"X6 = {Math.Round(X[5, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                         }
                     }
@@ -734,6 +744,7 @@ namespace System_Of_Linear_Equation
                         textBox1.Visible = false;
                         button8.Visible = false;
                         label4.Visible = false;
+                        label5.Visible = false;
                     }
                     break;
             }
@@ -898,6 +909,7 @@ namespace System_Of_Linear_Equation
             double[,] X, L, U, Y;
             int[] P;
             bool success;
+            int operations;
             switch (comboBox1.SelectedItem)
             {
                 case "3":
@@ -906,7 +918,7 @@ namespace System_Of_Linear_Equation
                         textBox31.Text, textBox32.Text, textBox33.Text, textBox34.Text);
                     if (success)
                     {
-                        (X, L, U, P, Y) = Method1.LUP(Amatrix, Bmatrix);
+                        (X, L, U, P, Y, operations) = Method1.LUP(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -922,6 +934,8 @@ namespace System_Of_Linear_Equation
                             $"X2 = {Math.Round(X[1, 0], 3).ToString()}\r\n" +
                             $"X3 = {Math.Round(X[2, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                             textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
                                 $"| {Math.Round(L[0,0], 2)}  0   0  |\r\n" +
@@ -944,7 +958,14 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(X[1, 0], 2)} |\r\n" +
                                 $"| {Math.Round(X[2, 0], 2)} |";
                         }
-                    }                    
+                    }
+                    else
+                    {
+                        textBox1.Visible = false;
+                        button8.Visible = false;
+                        label4.Visible = false;
+                        label5.Visible = false;
+                    }
                     break;
                 case "4":
                     (Amatrix, Bmatrix, success) = ArrayToMatrix.RunAlgorithm(textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text, textBox15.Text,
@@ -953,7 +974,7 @@ namespace System_Of_Linear_Equation
                         textBox41.Text, textBox42.Text, textBox43.Text, textBox44.Text, textBox45.Text);
                     if (success)
                     {
-                        (X, L, U, P, Y) = Method1.LUP(Amatrix, Bmatrix);
+                        (X, L, U, P, Y, operations) = Method1.LUP(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -970,6 +991,7 @@ namespace System_Of_Linear_Equation
                             $"X3 = {Math.Round(X[2, 0], 3).ToString()}\r\n" +
                             $"X4 = {Math.Round(X[3, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                             textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
                             $"| {Math.Round(L[0, 0], 2)}  0   0   0  |\r\n" +
@@ -999,7 +1021,14 @@ namespace System_Of_Linear_Equation
                             $"| {Math.Round(X[3, 0], 2)} |";
                         }
                     }
-                    
+                    else
+                    {
+                        textBox1.Visible = false;
+                        button8.Visible = false;
+                        label4.Visible = false;
+                        label5.Visible = false;
+                    }
+
                     break;
                 case "5":
                     (Amatrix, Bmatrix, success) = ArrayToMatrix.RunAlgorithm(textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text, textBox15.Text, textBox16.Text,
@@ -1009,7 +1038,7 @@ namespace System_Of_Linear_Equation
                         textBox51.Text, textBox52.Text, textBox53.Text, textBox54.Text, textBox55.Text, textBox56.Text);
                     if (success)
                     {
-                        (X, L, U, P, Y) = Method1.LUP(Amatrix, Bmatrix);
+                        (X, L, U, P, Y, operations) = Method1.LUP(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -1027,6 +1056,8 @@ namespace System_Of_Linear_Equation
                             $"X4 = {Math.Round(X[3, 0], 3).ToString()}\r\n" +
                             $"X5 = {Math.Round(X[4, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                             textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
                             $"| {Math.Round(L[0, 0], 2)}  0   0   0   0  |\r\n" +
@@ -1060,7 +1091,14 @@ namespace System_Of_Linear_Equation
                             $"| {Math.Round(X[4, 0], 2)} |";
                         }
                     }
-                    
+                    else
+                    {
+                        textBox1.Visible = false;
+                        button8.Visible = false;
+                        label4.Visible = false;
+                        label5.Visible = false;
+                    }
+
                     break;
                 case "6":
                     (Amatrix, Bmatrix, success) = ArrayToMatrix.RunAlgorithm(textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text,
@@ -1071,7 +1109,7 @@ namespace System_Of_Linear_Equation
                         textBox61.Text, textBox62.Text, textBox63.Text, textBox64.Text, textBox65.Text, textBox66.Text, textBox67.Text);
                     if (success)
                     {
-                        (X, L, U, P, Y) = Method1.LUP(Amatrix, Bmatrix);
+                        (X, L, U, P, Y, operations) = Method1.LUP(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -1090,6 +1128,8 @@ namespace System_Of_Linear_Equation
                             $"X5 = {Math.Round(X[4, 0], 3).ToString()}\r\n" +
                             $"X6 = {Math.Round(X[5, 0], 3).ToString()}\r\n";
                             label4.Visible = true;
+                            label5.Visible = true;
+                            label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
                             textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
                             $"| {Math.Round(L[0, 0], 2)}  0   0   0   0   0  |\r\n" +
@@ -1127,7 +1167,14 @@ namespace System_Of_Linear_Equation
                             $"| {Math.Round(X[4, 0], 2)} |\r\n" +
                             $"| {Math.Round(X[5, 0], 2)} |";
                         }
-                    }                    
+                    }
+                    else
+                    {
+                        textBox1.Visible = false;
+                        button8.Visible = false;
+                        label4.Visible = false;
+                        label5.Visible = false;
+                    }
                     break;
             }
             
@@ -1178,6 +1225,7 @@ namespace System_Of_Linear_Equation
         {
             double[,] Amatrix;
             double[,] Bmatrix, L, D, LUp, Y, Z, X;
+            int operations = 0;
             bool success;
             switch (comboBox1.SelectedItem)
             {                
@@ -1192,7 +1240,7 @@ namespace System_Of_Linear_Equation
                         textBox31.Text, textBox32.Text, textBox33.Text, textBox34.Text);
                     if (success)
                     {
-                        (X, L, D, LUp, Y, Z) = Method3.Cholesky(Amatrix, Bmatrix);
+                        (X, L, D, LUp, Y, Z, operations) = Method3.Cholesky(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -1212,7 +1260,29 @@ namespace System_Of_Linear_Equation
                                 "Врахуйте, що якщо ваша матриця несиметрична та не " +
                                 "додатньо визначена, метод Холеського може дати неправильні розв'язки";
                                 label4.Visible = true;
+                                label5.Visible = true;
+                                label5.Text = $"К-сть операцій: {operations}";
                                 textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                                textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
+                                $"| {Math.Round(L[0, 0], 2)}  0   0  |\r\n" +
+                                $"| {Math.Round(L[1, 0], 2)} {Math.Round(L[1, 1], 2)}  0  |\r\n" +
+                                $"| {Math.Round(L[2, 0], 2)} {Math.Round(L[2, 1], 2)} {Math.Round(L[2, 2], 2)} |\r\n" +
+                                $"\r\nU (верхньотрикутна матриця):\r\n" +
+                                $"|  {Math.Round(LUp[0, 0], 2)} {Math.Round(LUp[0, 1], 2)} {Math.Round(LUp[0, 2], 2)} |\r\n" +
+                                $"|  0   {Math.Round(LUp[1, 1], 2)} {Math.Round(LUp[1, 2], 2)} |\r\n" +
+                                $"|  0   0   {Math.Round(LUp[2, 2], 2)} |\r\n" +
+                                $"\r\nD (діагональна матриця):\r\n" +
+                                $"| {Math.Round(D[0, 0], 2)} {Math.Round(D[0, 1], 2)} {Math.Round(D[0, 2], 2)} |\r\n" +
+                                $"| {Math.Round(D[1, 0], 2)} {Math.Round(D[1, 1], 2)} {Math.Round(D[1, 2], 2)} |\r\n" +
+                                $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} |\r\n" +
+                                $"\r\nМатриця Y:\r\n" +
+                                $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                                $"\r\nМатриця X:\r\n" +
+                                $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[2, 0], 2)} |";
                             }
                         }
                         else
@@ -1235,7 +1305,7 @@ namespace System_Of_Linear_Equation
                         textBox41.Text, textBox42.Text, textBox43.Text, textBox44.Text, textBox45.Text);
                     if (success)
                     {
-                        (X, L, D, LUp, Y, Z) = Method3.Cholesky(Amatrix, Bmatrix);
+                        (X, L, D, LUp, Y, Z, operations) = Method3.Cholesky(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -1256,7 +1326,34 @@ namespace System_Of_Linear_Equation
                                 "Врахуйте, що якщо ваша матриця несиметрична та не " +
                                 "додатньо визначена, метод Холеського може дати неправильні розв'язки";
                                 label4.Visible = true;
+                                label5.Visible = true;
+                                label5.Text = $"К-сть операцій: {operations}";
                                 textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                                textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
+                                $"| {Math.Round(L[0, 0], 2)}  0   0  0  |\r\n" +
+                                $"| {Math.Round(L[1, 0], 2)} {Math.Round(L[1, 1], 2)}  0  0  |\r\n" +
+                                $"| {Math.Round(L[2, 0], 2)} {Math.Round(L[2, 1], 2)} {Math.Round(L[2, 2], 2)}  0 |\r\n" +
+                                $"| {Math.Round(L[3, 0], 2)} {Math.Round(L[3, 1], 2)} {Math.Round(L[3, 2], 2)}  {Math.Round(L[3, 3], 2)} |\r\n" +
+                                $"\r\nU (верхньотрикутна матриця):\r\n" +
+                                $"|  {Math.Round(LUp[0, 0], 2)} {Math.Round(LUp[0, 1], 2)} {Math.Round(LUp[0, 2], 2)}  {Math.Round(LUp[0, 3], 2)} |\r\n" +
+                                $"|  0   {Math.Round(LUp[1, 1], 2)} {Math.Round(LUp[1, 2], 2)}  {Math.Round(LUp[1, 3], 2)} |\r\n" +
+                                $"|  0   0   {Math.Round(LUp[2, 2], 2)}  {Math.Round(LUp[2, 3], 2)} |\r\n" +
+                                $"|  0   0   0   {Math.Round(LUp[3, 3], 2)} |\r\n" +
+                                $"\r\nD (діагональна матриця):\r\n" +
+                                $"| {Math.Round(D[0, 0], 2)} {Math.Round(D[0, 1], 2)} {Math.Round(D[0, 2], 2)} {Math.Round(D[0, 3], 2)} |\r\n" +
+                                $"| {Math.Round(D[1, 0], 2)} {Math.Round(D[1, 1], 2)} {Math.Round(D[1, 2], 2)} {Math.Round(D[1, 3], 2)} |\r\n" +
+                                $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} {Math.Round(D[2, 3], 2)} |\r\n" +
+                                $"| {Math.Round(D[3, 0], 2)} {Math.Round(D[3, 1], 2)} {Math.Round(D[3, 2], 2)} {Math.Round(D[3, 3], 2)} |\r\n" +
+                                $"\r\nМатриця Y:\r\n" +
+                                $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[3, 0], 2)} |\r\n" +
+                                $"\r\nМатриця X:\r\n" +
+                                $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[3, 0], 2)} |";
                             }
                         }
                         else
@@ -1280,7 +1377,7 @@ namespace System_Of_Linear_Equation
                         textBox51.Text, textBox52.Text, textBox53.Text, textBox54.Text, textBox55.Text, textBox56.Text);
                     if (success)
                     {
-                        (X, L, D, LUp, Y, Z) = Method3.Cholesky(Amatrix, Bmatrix);
+                        (X, L, D, LUp, Y, Z, operations) = Method3.Cholesky(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -1302,7 +1399,39 @@ namespace System_Of_Linear_Equation
                                 "Врахуйте, що якщо ваша матриця несиметрична та не " +
                                 "додатньо визначена, метод Холеського може дати неправильні розв'язки";
                                 label4.Visible = true;
+                                label5.Visible = true;
+                                label5.Text = $"К-сть операцій: {operations}";
                                 textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                                textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
+                                $"| {Math.Round(L[0, 0], 2)}  0   0  0  0  |\r\n" +
+                                $"| {Math.Round(L[1, 0], 2)} {Math.Round(L[1, 1], 2)}  0  0  0  |\r\n" +
+                                $"| {Math.Round(L[2, 0], 2)} {Math.Round(L[2, 1], 2)} {Math.Round(L[2, 2], 2)}  0  0 |\r\n" +
+                                $"| {Math.Round(L[3, 0], 2)} {Math.Round(L[3, 1], 2)} {Math.Round(L[3, 2], 2)}  {Math.Round(L[3, 3], 2)}  0 |\r\n" +
+                                $"| {Math.Round(L[4, 0], 2)} {Math.Round(L[4, 1], 2)} {Math.Round(L[4, 2], 2)}  {Math.Round(L[4, 3], 2)}  {Math.Round(L[4, 4], 2)} |\r\n" +
+                                $"\r\nU (верхньотрикутна матриця):\r\n" +
+                                $"|  {Math.Round(LUp[0, 0], 2)} {Math.Round(LUp[0, 1], 2)} {Math.Round(LUp[0, 2], 2)}  {Math.Round(LUp[0, 3], 2)}  {Math.Round(LUp[0, 4], 2)} |\r\n" +
+                                $"|  0   {Math.Round(LUp[1, 1], 2)} {Math.Round(LUp[1, 2], 2)}  {Math.Round(LUp[1, 3], 2)}  {Math.Round(LUp[1, 4], 2)} |\r\n" +
+                                $"|  0   0   {Math.Round(LUp[2, 2], 2)}  {Math.Round(LUp[2, 3], 2)}  {Math.Round(LUp[2, 4], 2)} |\r\n" +
+                                $"|  0   0   0   {Math.Round(LUp[3, 3], 2)}  {Math.Round(LUp[3, 4], 2)} |\r\n" +
+                                $"|  0   0   0   0   {Math.Round(LUp[4, 4], 2)} |\r\n" +
+                                $"\r\nD (діагональна матриця):\r\n" +
+                                $"| {Math.Round(D[0, 0], 2)} {Math.Round(D[0, 1], 2)} {Math.Round(D[0, 2], 2)} {Math.Round(D[0, 3], 2)}  {Math.Round(D[0, 4], 2)} |\r\n" +
+                                $"| {Math.Round(D[1, 0], 2)} {Math.Round(D[1, 1], 2)} {Math.Round(D[1, 2], 2)} {Math.Round(D[1, 3], 2)}  {Math.Round(D[1, 4], 2)} |\r\n" +
+                                $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} {Math.Round(D[2, 3], 2)}  {Math.Round(D[2, 4], 2)} |\r\n" +
+                                $"| {Math.Round(D[3, 0], 2)} {Math.Round(D[3, 1], 2)} {Math.Round(D[3, 2], 2)} {Math.Round(D[3, 3], 2)}  {Math.Round(D[3, 4], 2)} |\r\n" +
+                                $"| {Math.Round(D[4, 0], 2)} {Math.Round(D[4, 1], 2)} {Math.Round(D[4, 2], 2)} {Math.Round(D[4, 3], 2)}  {Math.Round(D[4, 4], 2)} |\r\n" +
+                                $"\r\nМатриця Y:\r\n" +
+                                $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[3, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[4, 0], 2)} |\r\n" +
+                                $"\r\nМатриця X:\r\n" +
+                                $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[3, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[4, 0], 2)} |";
                             }
                         }
                         else
@@ -1327,7 +1456,7 @@ namespace System_Of_Linear_Equation
                         textBox61.Text, textBox62.Text, textBox63.Text, textBox64.Text, textBox65.Text, textBox66.Text, textBox67.Text);
                     if (success)
                     {
-                        (X, L, D, LUp, Y, Z) = Method3.Cholesky(Amatrix, Bmatrix);
+                        (X, L, D, LUp, Y, Z, operations) = Method3.Cholesky(Amatrix, Bmatrix);
                         textBox1.Visible = true;
                         button8.Visible = true;
                         textBox1.Text = "Умова:\r\n";
@@ -1350,7 +1479,44 @@ namespace System_Of_Linear_Equation
                                 "Врахуйте, що якщо ваша матриця несиметрична та не " +
                                 "додатньо визначена, метод Холеського може дати неправильні розв'язки";
                                 label4.Visible = true;
+                                label5.Visible = true;
+                                label5.Text = $"К-сть операцій: {operations}";
                                 textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                                textBox1.Text += $"L (нижньотрикутна матриця):\r\n" +
+                                $"| {Math.Round(L[0, 0], 2)}   0   0   0   0   0   |\r\n" +
+                                $"| {Math.Round(L[1, 0], 2)} {Math.Round(L[1, 1], 2)}   0   0   0   0   |\r\n" +
+                                $"| {Math.Round(L[2, 0], 2)} {Math.Round(L[2, 1], 2)} {Math.Round(L[2, 2], 2)}   0   0   0   |\r\n" +
+                                $"| {Math.Round(L[3, 0], 2)} {Math.Round(L[3, 1], 2)} {Math.Round(L[3, 2], 2)}  {Math.Round(L[3, 3], 2)}   0   0   |\r\n" +
+                                $"| {Math.Round(L[4, 0], 2)} {Math.Round(L[4, 1], 2)} {Math.Round(L[4, 2], 2)}  {Math.Round(L[4, 3], 2)}  {Math.Round(L[4, 4], 2)}   0  |\r\n" +
+                                $"| {Math.Round(L[5, 0], 2)} {Math.Round(L[5, 1], 2)} {Math.Round(L[5, 2], 2)}  {Math.Round(L[5, 3], 2)}  {Math.Round(L[5, 4], 2)}  {Math.Round(L[5, 5], 2)}  |\r\n" +
+                                $"\r\nU (верхньотрикутна матриця):\r\n" +
+                                $"|   {Math.Round(LUp[0, 0], 2)}  {Math.Round(LUp[0, 1], 2)}  {Math.Round(LUp[0, 2], 2)}  {Math.Round(LUp[0, 3], 2)}  {Math.Round(LUp[0, 4], 2)}  {Math.Round(LUp[0, 5], 2)} |\r\n" +
+                                $"|   0   {Math.Round(LUp[1, 1], 2)}  {Math.Round(LUp[1, 2], 2)}  {Math.Round(LUp[1, 3], 2)}  {Math.Round(LUp[1, 4], 2)}  {Math.Round(LUp[1, 5], 2)} |\r\n" +
+                                $"|   0   0   {Math.Round(LUp[2, 2], 2)}  {Math.Round(LUp[2, 3], 2)}  {Math.Round(LUp[2, 4], 2)}  {Math.Round(LUp[2, 5], 2)} |\r\n" +
+                                $"|   0   0   0   {Math.Round(LUp[3, 3], 2)}  {Math.Round(LUp[3, 4], 2)}  {Math.Round(LUp[3, 5], 2)} |\r\n" +
+                                $"|   0   0   0   0   {Math.Round(LUp[4, 4], 2)}  {Math.Round(LUp[0, 5], 2)} |\r\n" +
+                                $"|   0   0   0   0   0   {Math.Round(LUp[5, 5], 2)} |\r\n" +
+                                $"\r\nD (діагональна матриця):\r\n" +
+                                $"| {Math.Round(D[0, 0], 2)} {Math.Round(D[0, 1], 2)} {Math.Round(D[0, 2], 2)} {Math.Round(D[0, 3], 2)}  {Math.Round(D[0, 4], 2)}  {Math.Round(D[0, 5], 2)}  |\r\n" +
+                                $"| {Math.Round(D[1, 0], 2)} {Math.Round(D[1, 1], 2)} {Math.Round(D[1, 2], 2)} {Math.Round(D[1, 3], 2)}  {Math.Round(D[1, 4], 2)}  {Math.Round(D[1, 5], 2)}  |\r\n" +
+                                $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} {Math.Round(D[2, 3], 2)}  {Math.Round(D[2, 4], 2)}  {Math.Round(D[2, 5], 2)}  |\r\n" +
+                                $"| {Math.Round(D[3, 0], 2)} {Math.Round(D[3, 1], 2)} {Math.Round(D[3, 2], 2)} {Math.Round(D[3, 3], 2)}  {Math.Round(D[3, 4], 2)}  {Math.Round(D[3, 5], 2)}  |\r\n" +
+                                $"| {Math.Round(D[4, 0], 2)} {Math.Round(D[4, 1], 2)} {Math.Round(D[4, 2], 2)} {Math.Round(D[4, 3], 2)}  {Math.Round(D[4, 4], 2)}  {Math.Round(D[4, 5], 2)}  |\r\n" +
+                                $"| {Math.Round(D[5, 0], 2)} {Math.Round(D[5, 1], 2)} {Math.Round(D[5, 2], 2)} {Math.Round(D[5, 3], 2)}  {Math.Round(D[5, 4], 2)}  {Math.Round(D[5, 5], 2)}  |\r\n" +
+                                $"\r\nМатриця Y:\r\n" +
+                                $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[3, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[4, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Y[5, 0], 2)} |\r\n" +
+                                $"\r\nМатриця X:\r\n" +
+                                $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[3, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[4, 0], 2)} |\r\n" +
+                                $"| {Math.Round(X[5, 0], 2)} |";
                             }
                         }
                         else
@@ -1534,6 +1700,16 @@ namespace System_Of_Linear_Equation
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
         {
 
         }

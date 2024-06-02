@@ -140,6 +140,7 @@ namespace System_Of_Linear_Equation
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.інструкціяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -847,7 +848,7 @@ namespace System_Of_Linear_Equation
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(1137, 657);
+            this.button4.Location = new System.Drawing.Point(1278, 657);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(176, 46);
             this.button4.TabIndex = 142;
@@ -959,6 +960,7 @@ namespace System_Of_Linear_Equation
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(111, 294);
             this.panel9.TabIndex = 148;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // label36
             // 
@@ -1385,6 +1387,7 @@ namespace System_Of_Linear_Equation
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.допомогаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -1406,9 +1409,20 @@ namespace System_Of_Linear_Equation
             // 
             this.інструкціяToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.інструкціяToolStripMenuItem.Name = "інструкціяToolStripMenuItem";
-            this.інструкціяToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+            this.інструкціяToolStripMenuItem.Size = new System.Drawing.Size(172, 30);
             this.інструкціяToolStripMenuItem.Text = "Інструкція";
             this.інструкціяToolStripMenuItem.Click += new System.EventHandler(this.інструкціяToolStripMenuItem_Click);
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(997, 657);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(275, 30);
+            this.label5.TabIndex = 155;
+            this.label5.Text = "К-сть операцій: ";
+            this.label5.Visible = false;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form1
             // 
@@ -1416,6 +1430,7 @@ namespace System_Of_Linear_Equation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1466, 715);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
@@ -1578,6 +1593,7 @@ namespace System_Of_Linear_Equation
         private MenuStrip menuStrip1;
         private ToolStripMenuItem допомогаToolStripMenuItem;
         private ToolStripMenuItem інструкціяToolStripMenuItem;
+        private Label label5;
     }
 }
 
