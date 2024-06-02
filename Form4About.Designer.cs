@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 77);
+            this.label1.Location = new System.Drawing.Point(3, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(650, 20);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(653, 70);
+            this.button1.Location = new System.Drawing.Point(659, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 35);
             this.button1.TabIndex = 1;
@@ -65,9 +65,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(3, 98);
+            this.label2.Location = new System.Drawing.Point(3, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(791, 60);
+            this.label2.Size = new System.Drawing.Size(790, 120);
             this.label2.TabIndex = 2;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -75,7 +75,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 160);
+            this.label3.Location = new System.Drawing.Point(3, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(380, 60);
             this.label3.TabIndex = 3;
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(826, 420);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);

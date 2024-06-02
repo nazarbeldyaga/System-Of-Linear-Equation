@@ -120,7 +120,10 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Для зміни в рівнянні знаків з "+" на "-" введіть від'ємне число.
 Якщо у вашому рівнянні відсутня яка-небудь змінна, то у відповідне поле в калькуляторі введіть нуль.
-Якщо в рівнянні попереду змінною відсутні числа, то в відповідне поле калькулятора введіть одиницю.</value>
+Якщо в рівнянні попереду змінною відсутні числа, то у відповідне поле калькулятора введіть одиницю.
+Програма має можливість зберігати рішення у файл.
+Після вирішення СЛАР програма виводить кількість елементарних операцій, які бути підраховані 
+для вибраного методу.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

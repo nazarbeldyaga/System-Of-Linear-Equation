@@ -1395,6 +1395,7 @@ namespace System_Of_Linear_Equation
             this.menuStrip1.Size = new System.Drawing.Size(1466, 33);
             this.menuStrip1.TabIndex = 154;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // допомогаToolStripMenuItem
             // 

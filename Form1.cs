@@ -623,6 +623,27 @@ namespace System_Of_Linear_Equation
                             label5.Visible = true;
                             label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                            textBox1.Text += $"\r\nМатриця Q:\r\n" +
+                            $"| {Math.Round(Q[0, 0], 2)} {Math.Round(Q[0, 1], 2)} {Math.Round(Q[0, 2], 2)} |\r\n" +
+                            $"| {Math.Round(Q[1, 0], 2)} {Math.Round(Q[1, 1], 2)} {Math.Round(Q[1, 2], 2)} |\r\n" +
+                            $"| {Math.Round(Q[2, 0], 2)} {Math.Round(Q[2, 1], 2)} {Math.Round(Q[2, 2], 2)} |\r\n" +
+                            $"\r\nМатриця R:\r\n" +
+                            $"| {Math.Round(R[0, 0], 2)} {Math.Round(R[0, 1], 2)} {Math.Round(R[0, 2], 2)} |\r\n" +
+                            $"| {Math.Round(R[1, 0], 2)} {Math.Round(R[1, 1], 2)} {Math.Round(R[1, 2], 2)} |\r\n" +
+                            $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)} |\r\n" +
+                            $"\r\nМатриця H:\r\n" +
+                            $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)} |\r\n" +
+                            $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)} |\r\n" +
+                            $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)} |\r\n" +
+                            $"\r\nМатриця Y:\r\n" +
+                            $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                            $"\r\nМатриця X:\r\n" +
+                            $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[2, 0], 2)} |";
+
                         }
                     }
                     else
@@ -659,6 +680,31 @@ namespace System_Of_Linear_Equation
                             label5.Visible = true;
                             label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                            textBox1.Text += $"\r\nМатриця Q:\r\n" +
+                            $"| {Math.Round(Q[0, 0], 2)} {Math.Round(Q[0, 1], 2)} {Math.Round(Q[0, 2], 2)}  {Math.Round(Q[0, 3], 2)} |\r\n" +
+                            $"| {Math.Round(Q[1, 0], 2)} {Math.Round(Q[1, 1], 2)} {Math.Round(Q[1, 2], 2)}  {Math.Round(Q[1, 3], 2)} |\r\n" +
+                            $"| {Math.Round(Q[2, 0], 2)} {Math.Round(Q[2, 1], 2)} {Math.Round(Q[2, 2], 2)}  {Math.Round(Q[2, 3], 2)} |\r\n" +
+                            $"| {Math.Round(Q[3, 0], 2)} {Math.Round(Q[3, 1], 2)} {Math.Round(Q[3, 2], 2)}  {Math.Round(Q[3, 3], 2)} |\r\n" +
+                            $"\r\nМатриця R:\r\n" +
+                            $"| {Math.Round(R[0, 0], 2)} {Math.Round(R[0, 1], 2)} {Math.Round(R[0, 2], 2)}  {Math.Round(R[0, 3], 2)} |\r\n" +
+                            $"| {Math.Round(R[1, 0], 2)} {Math.Round(R[1, 1], 2)} {Math.Round(R[1, 2], 2)}  {Math.Round(R[1, 3], 2)} |\r\n" +
+                            $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)}  {Math.Round(R[2, 3], 2)} |\r\n" +
+                            $"| {Math.Round(R[3, 0], 2)} {Math.Round(R[3, 1], 2)} {Math.Round(R[3, 2], 2)}  {Math.Round(R[3, 3], 2)} |\r\n" +
+                            $"\r\nМатриця H:\r\n" +
+                            $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)}  {Math.Round(H[0, 3], 2)} |\r\n" +
+                            $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)}  {Math.Round(H[1, 3], 2)} |\r\n" +
+                            $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)}  {Math.Round(H[2, 3], 2)} |\r\n" +
+                            $"| {Math.Round(H[3, 0], 2)} {Math.Round(H[3, 1], 2)} {Math.Round(H[3, 2], 2)}  {Math.Round(H[3, 3], 2)} |\r\n" +
+                            $"\r\nМатриця Y:\r\n" +
+                            $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[3, 0], 2)} |\r\n" +
+                            $"\r\nМатриця X:\r\n" +
+                            $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[2, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[3, 0], 2)} |";
                         }
                     }
                     else
@@ -697,6 +743,36 @@ namespace System_Of_Linear_Equation
                             label5.Visible = true;
                             label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                            textBox1.Text += $"\r\nМатриця Q:\r\n" +
+                            $"| {Math.Round(Q[0, 0], 2)} {Math.Round(Q[0, 1], 2)} {Math.Round(Q[0, 2], 2)}  {Math.Round(Q[0, 3], 2)}  {Math.Round(Q[0, 4], 2)} |\r\n" +
+                            $"| {Math.Round(Q[1, 0], 2)} {Math.Round(Q[1, 1], 2)} {Math.Round(Q[1, 2], 2)}  {Math.Round(Q[1, 3], 2)}  {Math.Round(Q[1, 4], 2)} |\r\n" +
+                            $"| {Math.Round(Q[2, 0], 2)} {Math.Round(Q[2, 1], 2)} {Math.Round(Q[2, 2], 2)}  {Math.Round(Q[2, 3], 2)}  {Math.Round(Q[2, 4], 2)} |\r\n" +
+                            $"| {Math.Round(Q[3, 0], 2)} {Math.Round(Q[3, 1], 2)} {Math.Round(Q[3, 2], 2)}  {Math.Round(Q[3, 3], 2)}  {Math.Round(Q[3, 4], 2)} |\r\n" +
+                            $"| {Math.Round(Q[4, 0], 2)} {Math.Round(Q[4, 1], 2)} {Math.Round(Q[4, 2], 2)}  {Math.Round(Q[4, 3], 2)}  {Math.Round(Q[4, 4], 2)} |\r\n" +
+                            $"\r\nМатриця R:\r\n" +
+                            $"| {Math.Round(R[0, 0], 2)} {Math.Round(R[0, 1], 2)} {Math.Round(R[0, 2], 2)}  {Math.Round(R[0, 3], 2)}  {Math.Round(R[0, 4], 2)} |\r\n" +
+                            $"| {Math.Round(R[1, 0], 2)} {Math.Round(R[1, 1], 2)} {Math.Round(R[1, 2], 2)}  {Math.Round(R[1, 3], 2)}  {Math.Round(R[1, 4], 2)} |\r\n" +
+                            $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)}  {Math.Round(R[2, 3], 2)}  {Math.Round(R[2, 4], 2)} |\r\n" +
+                            $"| {Math.Round(R[3, 0], 2)} {Math.Round(R[3, 1], 2)} {Math.Round(R[3, 2], 2)}  {Math.Round(R[3, 3], 2)}  {Math.Round(R[3, 4], 2)} |\r\n" +
+                            $"| {Math.Round(R[4, 0], 2)} {Math.Round(R[4, 1], 2)} {Math.Round(R[4, 2], 2)}  {Math.Round(R[4, 3], 2)}  {Math.Round(R[4, 4], 2)} |\r\n" +
+                            $"\r\nМатриця H:\r\n" +
+                            $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)}  {Math.Round(H[0, 3], 2)}  {Math.Round(H[0, 4], 2)} |\r\n" +
+                            $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)}  {Math.Round(H[1, 3], 2)}  {Math.Round(H[1, 4], 2)} |\r\n" +
+                            $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)}  {Math.Round(H[2, 3], 2)}  {Math.Round(H[2, 4], 2)} |\r\n" +
+                            $"| {Math.Round(H[3, 0], 2)} {Math.Round(H[3, 1], 2)} {Math.Round(H[3, 2], 2)}  {Math.Round(H[3, 3], 2)}  {Math.Round(H[3, 4], 2)} |\r\n" +
+                            $"| {Math.Round(H[4, 0], 2)} {Math.Round(H[4, 1], 2)} {Math.Round(H[4, 2], 2)}  {Math.Round(H[4, 3], 2)}  {Math.Round(H[4, 4], 2)} |\r\n" +
+                            $"\r\nМатриця Y:\r\n" +
+                            $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[3, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[4, 0], 2)} |\r\n" +
+                            $"\r\nМатриця X:\r\n" +
+                            $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[2, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[3, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[4, 0], 2)} |";
                         }
                     }
                     else
@@ -737,6 +813,41 @@ namespace System_Of_Linear_Equation
                             label5.Visible = true;
                             label5.Text = $"К-сть операцій: {operations}";
                             textBox1.Text += "\r\n-----------------\r\nРішення:\r\n";
+                            textBox1.Text += $"\r\nМатриця Q:\r\n" +
+                            $"| {Math.Round(Q[0, 0], 2)} {Math.Round(Q[0, 1], 2)} {Math.Round(Q[0, 2], 2)}  {Math.Round(Q[0, 3], 2)}  {Math.Round(Q[0, 4], 2)}  {Math.Round(Q[0, 5], 2)} |\r\n" +
+                            $"| {Math.Round(Q[1, 0], 2)} {Math.Round(Q[1, 1], 2)} {Math.Round(Q[1, 2], 2)}  {Math.Round(Q[1, 3], 2)}  {Math.Round(Q[1, 4], 2)}  {Math.Round(Q[1, 5], 2)} |\r\n" +
+                            $"| {Math.Round(Q[2, 0], 2)} {Math.Round(Q[2, 1], 2)} {Math.Round(Q[2, 2], 2)}  {Math.Round(Q[2, 3], 2)}  {Math.Round(Q[2, 4], 2)}  {Math.Round(Q[2, 5], 2)} |\r\n" +
+                            $"| {Math.Round(Q[3, 0], 2)} {Math.Round(Q[3, 1], 2)} {Math.Round(Q[3, 2], 2)}  {Math.Round(Q[3, 3], 2)}  {Math.Round(Q[3, 4], 2)}  {Math.Round(Q[3, 5], 2)} |\r\n" +
+                            $"| {Math.Round(Q[4, 0], 2)} {Math.Round(Q[4, 1], 2)} {Math.Round(Q[4, 2], 2)}  {Math.Round(Q[4, 3], 2)}  {Math.Round(Q[4, 4], 2)}  {Math.Round(Q[4, 5], 2)} |\r\n" +
+                            $"| {Math.Round(Q[5, 0], 2)} {Math.Round(Q[5, 1], 2)} {Math.Round(Q[5, 2], 2)}  {Math.Round(Q[5, 3], 2)}  {Math.Round(Q[5, 4], 2)}  {Math.Round(Q[5, 5], 2)} |\r\n" +
+                            $"\r\nМатриця R:\r\n" +
+                            $"| {Math.Round(R[0, 0], 2)} {Math.Round(R[0, 1], 2)} {Math.Round(R[0, 2], 2)}  {Math.Round(R[0, 3], 2)}  {Math.Round(R[0, 4], 2)}  {Math.Round(Q[0, 5], 2)} |\r\n" +
+                            $"| {Math.Round(R[1, 0], 2)} {Math.Round(R[1, 1], 2)} {Math.Round(R[1, 2], 2)}  {Math.Round(R[1, 3], 2)}  {Math.Round(R[1, 4], 2)}  {Math.Round(Q[1, 5], 2)} |\r\n" +
+                            $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)}  {Math.Round(R[2, 3], 2)}  {Math.Round(R[2, 4], 2)}  {Math.Round(Q[2, 5], 2)} |\r\n" +
+                            $"| {Math.Round(R[3, 0], 2)} {Math.Round(R[3, 1], 2)} {Math.Round(R[3, 2], 2)}  {Math.Round(R[3, 3], 2)}  {Math.Round(R[3, 4], 2)}  {Math.Round(Q[3, 5], 2)} |\r\n" +
+                            $"| {Math.Round(R[4, 0], 2)} {Math.Round(R[4, 1], 2)} {Math.Round(R[4, 2], 2)}  {Math.Round(R[4, 3], 2)}  {Math.Round(R[4, 4], 2)}  {Math.Round(Q[4, 5], 2)} |\r\n" +
+                            $"| {Math.Round(R[5, 0], 2)} {Math.Round(R[5, 1], 2)} {Math.Round(R[5, 2], 2)}  {Math.Round(R[5, 3], 2)}  {Math.Round(R[5, 4], 2)}  {Math.Round(Q[5, 5], 2)} |\r\n" +
+                            $"\r\nМатриця H:\r\n" +
+                            $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)}  {Math.Round(H[0, 3], 2)}  {Math.Round(H[0, 4], 2)}  {Math.Round(H[0, 5], 2)} |\r\n" +
+                            $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)}  {Math.Round(H[1, 3], 2)}  {Math.Round(H[1, 4], 2)}  {Math.Round(H[1, 5], 2)} |\r\n" +
+                            $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)}  {Math.Round(H[2, 3], 2)}  {Math.Round(H[2, 4], 2)}  {Math.Round(H[2, 5], 2)} |\r\n" +
+                            $"| {Math.Round(H[3, 0], 2)} {Math.Round(H[3, 1], 2)} {Math.Round(H[3, 2], 2)}  {Math.Round(H[3, 3], 2)}  {Math.Round(H[3, 4], 2)}  {Math.Round(H[3, 5], 2)} |\r\n" +
+                            $"| {Math.Round(H[4, 0], 2)} {Math.Round(H[4, 1], 2)} {Math.Round(H[4, 2], 2)}  {Math.Round(H[4, 3], 2)}  {Math.Round(H[4, 4], 2)}  {Math.Round(H[4, 5], 2)} |\r\n" +
+                            $"| {Math.Round(H[5, 0], 2)} {Math.Round(H[5, 1], 2)} {Math.Round(H[5, 2], 2)}  {Math.Round(H[5, 3], 2)}  {Math.Round(H[5, 4], 2)}  {Math.Round(H[5, 5], 2)} |\r\n" +
+                            $"\r\nМатриця Y:\r\n" +
+                            $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[2, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[3, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[4, 0], 2)} |\r\n" +
+                            $"| {Math.Round(Y[5, 0], 2)} |\r\n" +
+                            $"\r\nМатриця X:\r\n" +
+                            $"| {Math.Round(X[0, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[1, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[2, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[3, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[4, 0], 2)} |\r\n" +
+                            $"| {Math.Round(X[5, 0], 2)} |";
                         }
                     }
                     else
@@ -1186,12 +1297,6 @@ namespace System_Of_Linear_Equation
             int rows = matrix.GetLength(0);
             int columns = matrix.GetLength(1);
 
-            // Перевірка на коректність розмірів матриць
-            if (variables.GetLength(0) != rows || results.Length != rows || variables.GetLength(1) != 1)
-            {
-                throw new ArgumentException("Розміри матриць не відповідають необхідним умовам.");
-            }
-
             for (int i = 0; i < rows; i++)
             {
                 sb.Append("| ");
@@ -1228,12 +1333,7 @@ namespace System_Of_Linear_Equation
             int operations = 0;
             bool success;
             switch (comboBox1.SelectedItem)
-            {                
-                case "2":                                       
-                    //(Amatrix, Bmatrix, success) = ArrayToMatrix.RunAlgorithm(textBox11.Text, textBox12.Text, textBox13.Text,
-                    //    textBox21.Text, textBox22.Text, textBox23.Text);
-                    //double[,] X = Method3.Cholesky(Amatrix, Bmatrix);
-                    //break;
+            {     
                 case "3":
                     (Amatrix, Bmatrix, success) = ArrayToMatrix.RunAlgorithm(textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text,
                         textBox21.Text, textBox22.Text, textBox23.Text, textBox24.Text,
@@ -1275,6 +1375,10 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(D[0, 0], 2)} {Math.Round(D[0, 1], 2)} {Math.Round(D[0, 2], 2)} |\r\n" +
                                 $"| {Math.Round(D[1, 0], 2)} {Math.Round(D[1, 1], 2)} {Math.Round(D[1, 2], 2)} |\r\n" +
                                 $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} |\r\n" +
+                                $"\r\nМатриця Z:\r\n" +
+                                $"| {Math.Round(Z[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[2, 0], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -1344,6 +1448,11 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(D[1, 0], 2)} {Math.Round(D[1, 1], 2)} {Math.Round(D[1, 2], 2)} {Math.Round(D[1, 3], 2)} |\r\n" +
                                 $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} {Math.Round(D[2, 3], 2)} |\r\n" +
                                 $"| {Math.Round(D[3, 0], 2)} {Math.Round(D[3, 1], 2)} {Math.Round(D[3, 2], 2)} {Math.Round(D[3, 3], 2)} |\r\n" +
+                                $"\r\nМатриця Z:\r\n" +
+                                $"| {Math.Round(Z[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[3, 0], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -1420,6 +1529,12 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(D[2, 0], 2)} {Math.Round(D[2, 1], 2)} {Math.Round(D[2, 2], 2)} {Math.Round(D[2, 3], 2)}  {Math.Round(D[2, 4], 2)} |\r\n" +
                                 $"| {Math.Round(D[3, 0], 2)} {Math.Round(D[3, 1], 2)} {Math.Round(D[3, 2], 2)} {Math.Round(D[3, 3], 2)}  {Math.Round(D[3, 4], 2)} |\r\n" +
                                 $"| {Math.Round(D[4, 0], 2)} {Math.Round(D[4, 1], 2)} {Math.Round(D[4, 2], 2)} {Math.Round(D[4, 3], 2)}  {Math.Round(D[4, 4], 2)} |\r\n" +
+                                $"\r\nМатриця Z:\r\n" +
+                                $"| {Math.Round(Z[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[3, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[4, 0], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -1503,6 +1618,13 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(D[3, 0], 2)} {Math.Round(D[3, 1], 2)} {Math.Round(D[3, 2], 2)} {Math.Round(D[3, 3], 2)}  {Math.Round(D[3, 4], 2)}  {Math.Round(D[3, 5], 2)}  |\r\n" +
                                 $"| {Math.Round(D[4, 0], 2)} {Math.Round(D[4, 1], 2)} {Math.Round(D[4, 2], 2)} {Math.Round(D[4, 3], 2)}  {Math.Round(D[4, 4], 2)}  {Math.Round(D[4, 5], 2)}  |\r\n" +
                                 $"| {Math.Round(D[5, 0], 2)} {Math.Round(D[5, 1], 2)} {Math.Round(D[5, 2], 2)} {Math.Round(D[5, 3], 2)}  {Math.Round(D[5, 4], 2)}  {Math.Round(D[5, 5], 2)}  |\r\n" +
+                                 $"\r\nМатриця Z:\r\n" +
+                                $"| {Math.Round(Z[0, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[1, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[2, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[3, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[4, 0], 2)} |\r\n" +
+                                $"| {Math.Round(Z[5, 0], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -1710,6 +1832,11 @@ namespace System_Of_Linear_Equation
         }
 
         private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
