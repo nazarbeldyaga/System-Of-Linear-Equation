@@ -618,6 +618,7 @@ namespace System_Of_Linear_Equation
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(54, 32);
             this.comboBox1.TabIndex = 111;
+            this.comboBox1.SelectedIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label26

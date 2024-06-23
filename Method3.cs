@@ -1,94 +1,71 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System_Of_Linear_Equation;
 
 namespace System_Of_Linear_Equation
 {
     public static class Method3
     {
-        public static (double[,], double[,], double[,], double[,], double[,], double[,], int) Cholesky(double[,] A, double[,] B)
+        public static (double[,], double[,], double[,], double[,], int) Cholesky(double[,] A, double[,] B)
         {
             int operations = 0;
-            (double[,] L, double[,] D) = LDDecomposition(A, ref operations);
-            double[,] LUp = SimpleUpperTriangularMatrix(L);//Транспонування нижньої матриці
+            double[,] L = CholeskyDecomposition(A, ref operations);
+            double[,] LUp = SimpleUpperTriangularMatrix(L); // Transpose of lower triangular matrix
             double[,] Y = SimpleSolveForY(L, B, ref operations);
-            double[,] Z = SimpleSolveForX(D, Y, ref operations);
-            double[,] X = SimpleSolveForX(LUp, Z, ref operations);
-            return (X, L, D, LUp, Y, Z, operations);
+            double[,] X = SimpleSolveForX(LUp, Y, ref operations);
+            return (X, L, LUp, Y, operations);
         }
-        public static (double[,], double[,]) LDDecomposition(double[,] A, ref int operations)
+
+        public static double[,] CholeskyDecomposition(double[,] A, ref int operations)
         {
             int n = A.GetLength(0);
             double[,] L = new double[n, n];
-            double[,] D = new double[n, n];
 
-            for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
             {
-                for (int j = 0; j <= i; j++)
+                double sum = 0;
+                for (int k = 0; k < j; k++)
                 {
-                    double sum = 0;
-                    operations++;
-                    if (j == i)
+                    operations+=2;
+                    sum += L[j, k] * L[j, k];
+                }
+                operations++;
+                L[j, j] = Math.Sqrt(A[j, j] - sum);
+
+                for (int i = j + 1; i < n; i++)
+                {
+                    sum = 0;
+                    for (int k = 0; k < j; k++)
                     {
-                        for (int k = 0; k < j; k++)
-                        {
-                            operations += 3;
-                            sum += L[j, k] * L[j, k] * D[k, k];
-                        }
                         operations++;
-                        D[j, j] = A[j, j] - sum; //при від'ємних значеннях, елементи діагональної матриці можуть бути від'ємними або нульовими 
-                        L[j, j] = 1;
+                        sum += L[i, k] * L[j, k];
                     }
-                    else
-                    {
-                        for (int k = 0; k < j; k++)
-                        {
-                            operations += 3;
-                            sum += (L[i, k] * D[k, k] * L[j, k]);
-                        }
-                        operations += 2;
-                        L[i, j] = (A[i, j] - sum) / D[j, j];//через можливе ділення на нуль або від'ємне число, нижня трикутна мтариця може бути неправильною
-                    }
+                    operations++;
+                    L[i, j] = (A[i, j] - sum) / L[j, j];
                 }
             }
 
-            return (L, D);
+            return L;
         }
+
         public static double[,] SimpleUpperTriangularMatrix(double[,] L)
         {
             int n = L.GetLength(0);
-            double[,] LUp = new double[n, n]; // Верхня трикутна матриця L
-            double temp;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    LUp[i, j] = L[i, j];
-                }
-            }
+            double[,] LUp = new double[n, n];
 
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (j > i)
-                    {
-                        temp = LUp[i, j];
-                        LUp[i, j] = L[j, i];
-                        LUp[j, i] = temp;
-                    }
+                    LUp[i, j] = L[j, i];
                 }
             }
+
             return LUp;
         }
+
         public static double[,] SimpleSolveForY(double[,] L, double[,] B, ref int operations)
         {
-            int n = L.GetLength(0); // Розмірність матриці L
-            double[,] Y = new double[n, 1]; // Матриця Y
+            int n = L.GetLength(0); // Dimension of matrix L
+            double[,] Y = new double[n, 1]; // Matrix Y
 
             for (int i = 0; i < n; i++)
             {
@@ -103,10 +80,11 @@ namespace System_Of_Linear_Equation
             }
             return Y;
         }
+
         public static double[,] SimpleSolveForX(double[,] LUp, double[,] Y, ref int operations)
         {
-            int n = LUp.GetLength(0); // Розмірність матриці LUp
-            double[,] X = new double[n, 1]; // Матриця X
+            int n = LUp.GetLength(0); // Dimension of matrix LUp
+            double[,] X = new double[n, 1]; // Matrix X
 
             for (int i = n - 1; i >= 0; i--)
             {
@@ -122,7 +100,5 @@ namespace System_Of_Linear_Equation
 
             return X;
         }
-
-
     }
 }

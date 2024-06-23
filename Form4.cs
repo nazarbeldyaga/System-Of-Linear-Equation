@@ -21,6 +21,7 @@ namespace System_Of_Linear_Equation
         public Form4()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
         public string Label1Text
         {
