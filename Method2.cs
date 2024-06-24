@@ -18,11 +18,10 @@ public static class Method2
                 double b = R[i, j];
                 if (b != 0)
                 {
-                    double r = Math.Sqrt(a * a + b * b);
-                    double c = a / r;
-                    double s = -b / r;
-
-                    for (int k = 0; k < m; k++)
+                    double r = Math.Sqrt(a * a + b * b); // довжина вектора 
+                    double c = a / r; //косинус кута
+                    double s = -b / r; //синус кута
+                    for (int k = 0; k < m; k++) //оновлення матриці R застосуванням поворота гівенса
                     {
                         double tempR = c * R[i - 1, k] - s * R[i, k];
                         R[i, k] = s * R[i - 1, k] + c * R[i, k];
@@ -30,7 +29,7 @@ public static class Method2
                         operations += 6;
                     }
 
-                    for (int k = 0; k < n; k++)
+                    for (int k = 0; k < n; k++)  //оновлення матриці Q застосуванням поворота гівенса
                     {
                         double tempQ = c * Q[k, i - 1] - s * Q[k, i];
                         Q[k, i] = s * Q[k, i - 1] + c * Q[k, i];
@@ -58,7 +57,7 @@ public static class Method2
         return identity;
     }
 
-    private static double[,] MatrixMultiply(double[,] A, double[,] B, ref int operations)
+    private static double[,] MatrixMultiply(double[,] A, double[,] B, ref int operations) //множить дві матриці AB=
     {
         int rowsA = A.GetLength(0);
         int colsA = A.GetLength(1);
@@ -98,7 +97,7 @@ public static class Method2
         return result;
     }
 
-    public static double[,] SimpleSolveForX(double[,] R, double[,] Y, ref int operations)
+    public static double[,] SimpleSolveForX(double[,] R, double[,] Y, ref int operations) // RX=Y
     {
         int n = R.GetLength(0);
         double[,] X = new double[n, 1];
