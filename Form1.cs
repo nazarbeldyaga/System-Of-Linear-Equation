@@ -608,10 +608,11 @@ namespace System_Of_Linear_Equation
                         textBox1.Text += $"\r\n\r\nМетод QR для ({comboBox1.SelectedItem} рівнянь)\r\n\r\n";
                         if(CalculateDeterminant(Amatrix) != 0)
                         {
-                            (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
-                            if (double.IsNaN(X[0, 0]))
+                            (X, Q, R, Y, operations) = Method2.QR(Amatrix, Bmatrix);
+                            if (double.IsNaN(X[0, 0]) || Double.IsInfinity(X[0,0]))
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                             else
                             {
@@ -630,10 +631,6 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(R[0, 0], 2)} {Math.Round(R[0, 1], 2)} {Math.Round(R[0, 2], 2)} |\r\n" +
                                 $"| {Math.Round(R[1, 0], 2)} {Math.Round(R[1, 1], 2)} {Math.Round(R[1, 2], 2)} |\r\n" +
                                 $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)} |\r\n" +
-                                $"\r\nМатриця H:\r\n" +
-                                $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)} |\r\n" +
-                                $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)} |\r\n" +
-                                $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -648,6 +645,7 @@ namespace System_Of_Linear_Equation
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод QR не працює\r\n";
+                            label5.Visible = false;
                         }
                     }
                     else
@@ -672,10 +670,11 @@ namespace System_Of_Linear_Equation
                         textBox1.Text += $"\r\n\r\nМетод QR для ({comboBox1.SelectedItem} рівнянь)\r\n\r\n";
                         if(CalculateDeterminant(Amatrix) != 0)
                         {
-                            (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
-                            if (double.IsNaN(X[0, 0]))
+                            (X, Q, R, Y, operations) = Method2.QR(Amatrix, Bmatrix);
+                            if (double.IsNaN(X[0, 0]) || Double.IsInfinity(X[0, 0]))
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                             else
                             {
@@ -697,11 +696,6 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(R[1, 0], 2)} {Math.Round(R[1, 1], 2)} {Math.Round(R[1, 2], 2)}  {Math.Round(R[1, 3], 2)} |\r\n" +
                                 $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)}  {Math.Round(R[2, 3], 2)} |\r\n" +
                                 $"| {Math.Round(R[3, 0], 2)} {Math.Round(R[3, 1], 2)} {Math.Round(R[3, 2], 2)}  {Math.Round(R[3, 3], 2)} |\r\n" +
-                                $"\r\nМатриця H:\r\n" +
-                                $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)}  {Math.Round(H[0, 3], 2)} |\r\n" +
-                                $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)}  {Math.Round(H[1, 3], 2)} |\r\n" +
-                                $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)}  {Math.Round(H[2, 3], 2)} |\r\n" +
-                                $"| {Math.Round(H[3, 0], 2)} {Math.Round(H[3, 1], 2)} {Math.Round(H[3, 2], 2)}  {Math.Round(H[3, 3], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -718,6 +712,7 @@ namespace System_Of_Linear_Equation
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод QR не працює\r\n";
+                            label5.Visible = false;
                         }                        
                     }
                     else
@@ -743,10 +738,11 @@ namespace System_Of_Linear_Equation
                         textBox1.Text += $"\r\n\r\nМетод QR для ({comboBox1.SelectedItem} рівнянь)\r\n\r\n";
                         if(CalculateDeterminant(Amatrix) != 0)
                         {
-                            (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
-                            if (double.IsNaN(X[0, 0]))
+                            (X, Q, R, Y, operations) = Method2.QR(Amatrix, Bmatrix);
+                            if (double.IsNaN(X[0, 0]) || Double.IsInfinity(X[0, 0]))
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                             else
                             {
@@ -771,12 +767,6 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(R[2, 0], 2)} {Math.Round(R[2, 1], 2)} {Math.Round(R[2, 2], 2)}  {Math.Round(R[2, 3], 2)}  {Math.Round(R[2, 4], 2)} |\r\n" +
                                 $"| {Math.Round(R[3, 0], 2)} {Math.Round(R[3, 1], 2)} {Math.Round(R[3, 2], 2)}  {Math.Round(R[3, 3], 2)}  {Math.Round(R[3, 4], 2)} |\r\n" +
                                 $"| {Math.Round(R[4, 0], 2)} {Math.Round(R[4, 1], 2)} {Math.Round(R[4, 2], 2)}  {Math.Round(R[4, 3], 2)}  {Math.Round(R[4, 4], 2)} |\r\n" +
-                                $"\r\nМатриця H:\r\n" +
-                                $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)}  {Math.Round(H[0, 3], 2)}  {Math.Round(H[0, 4], 2)} |\r\n" +
-                                $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)}  {Math.Round(H[1, 3], 2)}  {Math.Round(H[1, 4], 2)} |\r\n" +
-                                $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)}  {Math.Round(H[2, 3], 2)}  {Math.Round(H[2, 4], 2)} |\r\n" +
-                                $"| {Math.Round(H[3, 0], 2)} {Math.Round(H[3, 1], 2)} {Math.Round(H[3, 2], 2)}  {Math.Round(H[3, 3], 2)}  {Math.Round(H[3, 4], 2)} |\r\n" +
-                                $"| {Math.Round(H[4, 0], 2)} {Math.Round(H[4, 1], 2)} {Math.Round(H[4, 2], 2)}  {Math.Round(H[4, 3], 2)}  {Math.Round(H[4, 4], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -795,6 +785,7 @@ namespace System_Of_Linear_Equation
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод QR не працює\r\n";
+                            label5.Visible = false;
                         }
                         
                     }
@@ -822,10 +813,11 @@ namespace System_Of_Linear_Equation
                         textBox1.Text += $"\r\n\r\nМетод QR для ({comboBox1.SelectedItem} рівнянь)\r\n\r\n";
                         if(CalculateDeterminant(Amatrix) != 0)
                         {
-                            (X, Q, R, H, Y, operations) = Method2.QR(Amatrix, Bmatrix);
-                            if (double.IsNaN(X[0, 0]))
+                            (X, Q, R, Y, operations) = Method2.QR(Amatrix, Bmatrix);
+                            if (double.IsNaN(X[0, 0]) || Double.IsInfinity(X[0, 0]))
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                             else
                             {
@@ -853,13 +845,6 @@ namespace System_Of_Linear_Equation
                                 $"| {Math.Round(R[3, 0], 2)} {Math.Round(R[3, 1], 2)} {Math.Round(R[3, 2], 2)}  {Math.Round(R[3, 3], 2)}  {Math.Round(R[3, 4], 2)}  {Math.Round(Q[3, 5], 2)} |\r\n" +
                                 $"| {Math.Round(R[4, 0], 2)} {Math.Round(R[4, 1], 2)} {Math.Round(R[4, 2], 2)}  {Math.Round(R[4, 3], 2)}  {Math.Round(R[4, 4], 2)}  {Math.Round(Q[4, 5], 2)} |\r\n" +
                                 $"| {Math.Round(R[5, 0], 2)} {Math.Round(R[5, 1], 2)} {Math.Round(R[5, 2], 2)}  {Math.Round(R[5, 3], 2)}  {Math.Round(R[5, 4], 2)}  {Math.Round(Q[5, 5], 2)} |\r\n" +
-                                $"\r\nМатриця H:\r\n" +
-                                $"| {Math.Round(H[0, 0], 2)} {Math.Round(H[0, 1], 2)} {Math.Round(H[0, 2], 2)}  {Math.Round(H[0, 3], 2)}  {Math.Round(H[0, 4], 2)}  {Math.Round(H[0, 5], 2)} |\r\n" +
-                                $"| {Math.Round(H[1, 0], 2)} {Math.Round(H[1, 1], 2)} {Math.Round(H[1, 2], 2)}  {Math.Round(H[1, 3], 2)}  {Math.Round(H[1, 4], 2)}  {Math.Round(H[1, 5], 2)} |\r\n" +
-                                $"| {Math.Round(H[2, 0], 2)} {Math.Round(H[2, 1], 2)} {Math.Round(H[2, 2], 2)}  {Math.Round(H[2, 3], 2)}  {Math.Round(H[2, 4], 2)}  {Math.Round(H[2, 5], 2)} |\r\n" +
-                                $"| {Math.Round(H[3, 0], 2)} {Math.Round(H[3, 1], 2)} {Math.Round(H[3, 2], 2)}  {Math.Round(H[3, 3], 2)}  {Math.Round(H[3, 4], 2)}  {Math.Round(H[3, 5], 2)} |\r\n" +
-                                $"| {Math.Round(H[4, 0], 2)} {Math.Round(H[4, 1], 2)} {Math.Round(H[4, 2], 2)}  {Math.Round(H[4, 3], 2)}  {Math.Round(H[4, 4], 2)}  {Math.Round(H[4, 5], 2)} |\r\n" +
-                                $"| {Math.Round(H[5, 0], 2)} {Math.Round(H[5, 1], 2)} {Math.Round(H[5, 2], 2)}  {Math.Round(H[5, 3], 2)}  {Math.Round(H[5, 4], 2)}  {Math.Round(H[5, 5], 2)} |\r\n" +
                                 $"\r\nМатриця Y:\r\n" +
                                 $"| {Math.Round(Y[0, 0], 2)} |\r\n" +
                                 $"| {Math.Round(Y[1, 0], 2)} |\r\n" +
@@ -880,6 +865,7 @@ namespace System_Of_Linear_Equation
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод QR не працює\r\n";
+                            label5.Visible = false;
                         }
                         
                     }
@@ -1103,12 +1089,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод LUP не працює\r\n";
+                            label5.Visible = false;
                         }
                     }
                     else
@@ -1173,12 +1161,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод LUP не працює\r\n";
+                            label5.Visible = false;
                         }                        
                     }
                     else
@@ -1251,12 +1241,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод LUP не працює\r\n";
+                            label5.Visible = false;
                         }                        
                     }
                     else
@@ -1337,12 +1329,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод LUP не працює\r\n";
+                            label5.Visible = false;
                         }
                     }
                     else
@@ -1449,13 +1443,15 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод Холеського не працює\r\n";
-                            
+                            label5.Visible = false;
+
                         }
                     }
                     else
@@ -1521,12 +1517,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод Холеського не працює\r\n";
+                            label5.Visible = false;
                         }
                     }
                     else
@@ -1598,12 +1596,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод Холеського не працює\r\n";
+                            label5.Visible = false;
                         }
                     }
                     else
@@ -1681,12 +1681,14 @@ namespace System_Of_Linear_Equation
                             else
                             {
                                 textBox1.Text += "Можливих рішень для заданого рівняння\r\nобраним способом не знайдено!";
+                                label5.Visible = false;
                             }
                         }
                         else
                         {
                             textBox1.Text += "Введена матриця є вродженою (її визначник рівний нулю).\r\n" +
                                 "Нажаль для цього випадку метод Холеського не працює\r\n";
+                            label5.Visible = false;
                         }
                     }
                     else
@@ -1771,7 +1773,7 @@ namespace System_Of_Linear_Equation
             return true;
         }
 
-        private static double CalculateDeterminant(double[,] matrix)
+        public static double CalculateDeterminant(double[,] matrix)
         {
             int n = matrix.GetLength(0);
             double det = 0;
@@ -1794,7 +1796,7 @@ namespace System_Of_Linear_Equation
             }
         }
 
-        private static double[,] GetMinor(double[,] matrix, int row, int col)
+        public static double[,] GetMinor(double[,] matrix, int row, int col)
         {
             int n = matrix.GetLength(0);
             double[,] output = new double[n - 1, n - 1];
@@ -1817,7 +1819,7 @@ namespace System_Of_Linear_Equation
             }
             return output;
         }
-        private static double[,] GetMinor(double[,] matrix, int size)
+        public static double[,] GetMinor(double[,] matrix, int size)
         {
             double[,] minor = new double[size, size];
             for (int i = 0; i < size; i++)
@@ -1905,12 +1907,6 @@ namespace System_Of_Linear_Equation
         {
             Form4About form4 = new Form4About();
             form4.ShowDialog();
-        }
-
-        private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form5 form5 = new Form5();
-            form5.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)

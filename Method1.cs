@@ -1,4 +1,5 @@
 ﻿using System;
+using System_Of_Linear_Equation;
 
 public static class Method1
 {
@@ -20,7 +21,24 @@ public static class Method1
 
         for (int i = 0; i < n; i++)
         {
-            P[i] = i; // Initialize permutation vector
+            for (int m = 2; m <= n; m++)
+            {
+                double[,] minor = Form1.GetMinor(A, m);
+                double det = Form1.CalculateDeterminant(minor);
+                if (det == 0)
+                {
+                    for (int l = n; l != 0; l--)
+                    {
+                        P[n - l] = l - 1;
+                    }
+                    break;
+                }
+                else
+                {
+                    P[i] = i;
+                }
+            }
+             // Веткор преестановок - вектор з поточним номером рядка
 
             for (int j = 0; j <= i; j++)
             {
@@ -73,6 +91,7 @@ public static class Method1
                 Swap(ref P[i], ref P[pivotRow]);
             }
         }
+        
 
         return (L, U, P);
     }

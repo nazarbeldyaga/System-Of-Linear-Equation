@@ -2,68 +2,50 @@
 
 public static class Method2
 {
-    public static (double[,], double[,], double[,], double[,], double[,], int) QR(double[,] A, double[,] B)
+    public static (double[,], double[,],  double[,], double[,], int) QR(double[,] A, double[,] B)
     {
         int operations = 0;
         int n = A.GetLength(0);
-        double[,] Q = new double[n, n];
+        int m = A.GetLength(1);
+        double[,] Q = IdentityMatrix(n); //одинична матриця
         double[,] R = (double[,])A.Clone();
-        double[,] H = new double[n, n];
 
-        for (int k = 0; k < n - 1; k++)
+        for (int j = 0; j < m; j++) //обхід по стовпцям
         {
-            double[] x = new double[n - k];
-            for (int i = k; i < n; i++)
+            for (int i = n - 1; i > j; i--) //обхід по рядкам знизу угору починаючи з n-1 до j+1
             {
-                x[i - k] = R[i, k];
-            }
-            operations += 2;
-            double alpha = -Math.Sign(x[0]) * Math.Sqrt(DotProduct(x, x, ref operations));//мінус знак першого елемента x помножений на корінь квадратний від суми квадратів елементів x.
-            double[] u = new double[n - k];
-            operations++;
-            u[0] = x[0] - alpha;
-            for (int i = 1; i < n - k; i++)
-            {
-                u[i] = x[i];//копіюються
-            }
-
-            double normU = Math.Sqrt(DotProduct(u, u, ref operations));
-            for (int i = 0; i < n - k; i++)
-            {
-                operations++;
-                u[i] /= normU;//нормалізація вектора шляхом ділення на його норму
-            }
-
-            H = IdentityMatrix(n);// створює одиничну матрицю
-            for (int i = k; i < n; i++)//створення матриці H
-            {
-                for (int j = k; j < n; j++)
+                double a = R[i - 1, j];
+                double b = R[i, j];
+                if (b != 0)
                 {
-                    operations += 3;
-                    H[i, j] -= 2 * u[i - k] * u[j - k];//зміна на основі вектора u
+                    double r = Math.Sqrt(a * a + b * b);
+                    double c = a / r;
+                    double s = -b / r;
+
+                    for (int k = 0; k < m; k++)
+                    {
+                        double tempR = c * R[i - 1, k] - s * R[i, k];
+                        R[i, k] = s * R[i - 1, k] + c * R[i, k];
+                        R[i - 1, k] = tempR;
+                        operations += 6;
+                    }
+
+                    for (int k = 0; k < n; k++)
+                    {
+                        double tempQ = c * Q[k, i - 1] - s * Q[k, i];
+                        Q[k, i] = s * Q[k, i - 1] + c * Q[k, i];
+                        Q[k, i - 1] = tempQ;
+                        operations += 6;
+                    }
                 }
             }
-
-            R = MatrixMultiply(H, R, ref operations);//шляхом множення на матрицю H, R перетворюється на верхню трикутнку
-            Q = k == 0 ? H : MatrixMultiply(Q, H, ref operations);//тернарний оператор, якщо k = 0 то Q = H, інакше метод
         }
 
         Q = MatrixTranspose(Q);
 
         double[,] Y = MatrixMultiply(Q, MatrixTranspose(B), ref operations);
         double[,] X = SimpleSolveForX(R, Y, ref operations);
-        return (X, Q, R, H, Y, operations);
-    }
-
-    private static double DotProduct(double[] a, double[] b, ref int operations)
-    {
-        double result = 0;
-        for (int i = 0; i < a.Length; i++)
-        {
-            operations += 2;
-            result += a[i] * b[i];
-        }
-        return result;
+        return (X, Q, R, Y, operations);
     }
 
     private static double[,] IdentityMatrix(int n)
@@ -78,18 +60,20 @@ public static class Method2
 
     private static double[,] MatrixMultiply(double[,] A, double[,] B, ref int operations)
     {
-        int n = A.GetLength(0);
+        int rowsA = A.GetLength(0);
+        int colsA = A.GetLength(1);
         int colsB = B.GetLength(1);
-        double[,] result = new double[n, colsB];
+        double[,] result = new double[rowsA, colsB];
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < rowsA; i++)
         {
             for (int j = 0; j < colsB; j++)
             {
-                for (int k = 0; k < n; k++)
+                result[i, j] = 0;
+                for (int k = 0; k < colsA; k++)
                 {
-                    operations += 2;
                     result[i, j] += A[i, k] * B[k, j];
+                    operations += 2;
                 }
             }
         }
@@ -124,11 +108,11 @@ public static class Method2
             double sum = 0;
             for (int k = i + 1; k < n; k++)
             {
-                operations += 2;
                 sum += R[i, k] * X[k, 0];
+                operations += 2;
             }
-            operations += 2;
             X[i, 0] = (Y[i, 0] - sum) / R[i, i];
+            operations += 2;
         }
 
         return X;

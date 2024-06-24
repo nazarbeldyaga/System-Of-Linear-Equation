@@ -8,7 +8,7 @@ namespace System_Of_Linear_Equation
         {
             int operations = 0;
             double[,] L = CholeskyDecomposition(A, ref operations);
-            double[,] LUp = SimpleUpperTriangularMatrix(L); // Transpose of lower triangular matrix
+            double[,] LUp = SimpleUpperTriangularMatrix(L); //транспонування нижньої у верхню
             double[,] Y = SimpleSolveForY(L, B, ref operations);
             double[,] X = SimpleSolveForX(LUp, Y, ref operations);
             return (X, L, LUp, Y, operations);
